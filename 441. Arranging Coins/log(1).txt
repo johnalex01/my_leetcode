@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        if(n==0) return 0;
+        long l=1,r=n;
+        while(l<r){
+            long m = l + (r-l+1)/2;
+            if(m*(m+1)/2<=n)
+                l=m;
+            else
+                r=m-1;
+        }
+        return l;
+    }
+};

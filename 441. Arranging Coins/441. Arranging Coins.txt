@@ -1,0 +1,9 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int cnt=1;
+        for(unsigned int sum = 0;sum<=n;cnt++)
+            sum+=cnt;
+        return max(cnt-2,0);
+    }
+};
