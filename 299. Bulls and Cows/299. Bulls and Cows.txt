@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        vector<int> s(10,0),g(10,0);
+        int cnt_A=0,cnt_B=0,ss=secret.size();
+        for(int i=0;i<ss;i++){
+            if(secret[i]==guess[i])
+                cnt_A++;
+            else{
+                s[secret[i]-'0']++;
+                g[guess[i]-'0']++;
+            }
+        }
+        for(int i=0;i<10;i++)
+            cnt_B+=min(s[i],g[i]);
+        return to_string(cnt_A)+"A"+to_string(cnt_B)+"B";
+            
+    }
+};
